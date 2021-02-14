@@ -1,10 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> f636b84e9fee7871bc9a5016a6418503c749822b
 void dutchSort(int arr[], int n){
     int lo=0,mid=0,hi=n-1;
     while(mid<=hi){
