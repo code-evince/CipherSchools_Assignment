@@ -9,5 +9,4 @@ def permuteSet(rest,soFar=''):
             remaining = rest[0:i] + rest[i+1:]
             permuteSet(remaining,next)
 
-
 permuteSet(Set)
