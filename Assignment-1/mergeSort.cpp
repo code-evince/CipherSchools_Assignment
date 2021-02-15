@@ -18,7 +18,7 @@ void merge(int arr[],int l,int m,int r){
     //the merge process
     int i = 0;
     int j = 0;
-    int k = l;//// Initial index of merged subarray
+    int k = l;
     while(i<n1 && j<n2){
         if(L[i]<=R[j]){arr[k++]=L[i++];}
         else{arr[k++]=R[j++];}
