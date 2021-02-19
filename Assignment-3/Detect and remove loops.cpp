@@ -10,15 +10,25 @@ struct Node{
     }
 };
 
-bool isLoop(Node* head)
+void detectRemoveLoop(Node* head)
 {
-    unordered_set<Node*> s;
-    for(Node *curr=head;curr!=NULL;curr=curr->next) {
-        if (s.find(curr) != s.end())
-            return true;
-        s.insert(curr);
+    Node *slow = head, *fast = head;
+
+    while (fast!=NULL && fast->next!=NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast) {
+            break;
+        }
     }
-    return false;
+    if(slow!=fast)
+        return;
+    slow=head;
+    while(slow->next!=fast->next){
+        slow=slow->next;
+        fast=fast->next;
+    }
+    fast->next=NULL;
 }
 
 int main()
@@ -28,9 +38,6 @@ int main()
 	head->next->next=new Node(12);
 	head->next->next->next=new Node(20);
 	head->next->next->next->next=head->next;
-	if (isLoop(head))
-        cout << "Loop found";
-    else
-        cout << "No Loop";
+	detectRemoveLoop(head);
 	return 0;
 }
